@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>canvas-game-demo-2</title>
+  <style>
+    body{background-color: black;}
+    #canvas1{position: absolute;border: 3px solid white;width: 800px;height: 700px;transform: translate(-50%,-50%);top: 50%;left: 50%;}
+  </style>
+</head>
+<body>
+  <canvas id="canvas1"></canvas>
+  <script>
+    // https://www.frankslaboratory.co.uk/downloads/94gamev5/
+
+    const canvas = document.querySelector('#canvas1')
+    const ctx = canvas.getContext('2d')
+    const CANVAS_WIDTH = canvas.width = 800
+    const CANVAS_HEIGHT = canvas.height = 800
+    let gameSpeed = 5
+
+    const backgroundLayer1 = new Image()
+    backgroundLayer1.src = 'layer-1.png'
+    const backgroundLayer2 = new Image()
+    backgroundLayer2.src = 'layer-2.png'
+    const backgroundLayer3 = new Image()
+    backgroundLayer3.src = 'layer-3.png'
+    const backgroundLayer4 = new Image()
+    backgroundLayer4.src = 'layer-4.png'
+    const backgroundLayer5 = new Image()
+    backgroundLayer5.src = 'layer-5.png'
+
+    let x = 0
+    function animate(){
+      ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT)
+      ctx.drawImage(backgroundLayer4, x, 0)
+      x--
+      requestAnimationFrame(animate)
+    }
+    animate()
+  </script>
+</body>
+</html>
